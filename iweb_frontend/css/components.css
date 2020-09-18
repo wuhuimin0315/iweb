@@ -5,41 +5,53 @@
 	border-bottom: 1px solid #eee;
 	line-height: 36px;
 }
+
 .download-app {
 	color: #f60;
 }
+
 .topbar-item {
-	padding:  0   0.5em;
+	padding: 0 0.5em;
 }
+
 .topbar-item:last-child {
 	padding-right: 0;
 }
+
 /* 2.LOGO+搜索条 */
-.searchbar > .container {
+.searchbar>.container {
 	/*为子元素的绝对定位提供定位标准*/
-	position: relative;  
+	position: relative;
 }
+
 .logo {
-	margin:  1.5em  0;
+	margin: 1.5em 0;
 }
+
 .search {
 	/* 保证元素在父容器中竖直居中方法1：调整上间距 */
 	/* margin-top: 25px; */
 	/* 保证元素在父容器中竖直居中方法2：先向下移到父容器中线一下，再向上微调自身高度一半 */
 	position: absolute;
-	top: 50%;   /*距离已定位的父元素顶部为父容器的50%*/
-	right: 200px; /*为右侧的“我的购物车”留空*/
-	margin-top: -16px;  /*往上微调自身高度的一半*/
+	top: 50%;
+	/*距离已定位的父元素顶部为父容器的50%*/
+	right: 200px;
+	/*为右侧的“我的购物车”留空*/
+	margin-top: -16px;
+	/*往上微调自身高度的一半*/
 }
+
 .search-input {
 	width: 360px;
 	height: 32px;
 	line-height: 32px;
-	padding: 0  0.6em;
+	padding: 0 0.6em;
 	font-size: 1.15em;
 	border: 1px solid #ccc;
-	margin-right: 50px;		/*让出右侧的搜索按钮的空间*/
+	margin-right: 50px;
+	/*让出右侧的搜索按钮的空间*/
 }
+
 .search-button {
 	width: 50px;
 	height: 32px;
@@ -52,6 +64,7 @@
 	right: 0;
 	top: 0;
 }
+
 .my-cart {
 	position: absolute;
 	right: 0;
@@ -61,92 +74,190 @@
 	border: 1px solid #ddd;
 	background: #f9f9f9;
 	line-height: 32px;
-	padding: 0  0.5em;
+	padding: 0 0.5em;
 }
-.my-cart > .fa {
-	color: #00be56;
-	padding: 0  0.5em;
+.my-cart > .fa{
+	color:#00BE56;
+	padding: 0 0.5em;
 }
 
 /* 3.导航条 */
 .navbar {
-	background: #00be56;
+	background: #00BE56;
 	border-bottom: 3px solid #b3efc0;
 	height: 52px;
 	font-size: 1.15em;
 }
-.menu {
+.menu{
+	
 }
 .menu > li {
 	float: left;
-	line-height: 49px;
-	padding: 0  1.5em;
+	line-height: 52px;
+	padding: 0 1.5em;
 }
-.menu > li:hover {
-	background: #00b149;
+.menu > li:hover{
+	background-color: #00b149;
+	height: 48px;
 }
-.menu > li.active {
-	background: #00a43d;
+.menu > li.active{
+	height: 48px;
+	background-color: #00a43d;
 }
-.menu > li > a {
+.menu > li > a{
 	color: #fff;
 }
-.user-center {
+.user-center{
 	background: #55c760;
-	line-height: 49px;
+	line-height: 48px;
 }
-.user-center  a,
-.user-center  span {
+.user-center a,.user-center span{
 	color: #fff;
 }
-.user-center  a:hover {
+.user-center a:hover{
 	color: #ffff9b;
 }
-
-/* 4.轮播广告 */
+/* 轮播广告 */
 .carouselbar {
 	border-bottom: 4px solid #ddd;
 }
-.carousel {
-	position: relative;  /*为绝对定位的子元素提供参照物*/
+.carousel{
+	position: relative;/*为绝对定位的子元素提供参照物*/
 }
-.carousel  .items  a {
-	display: block;		/*改为块级元素，可以修改宽和高*/
-	width: 100%;
+.carousel .items a{
+	display: block;/*改为块级元素，可以修改宽和高*/
 	height: 380px;
-	background-position: center;   /*背景图的位置*/
-	background-repeat: no-repeat;  /*背景图仅显示一次，不平铺*/
+	width: 100%;
+	background-position: center;
+	background-repeat: no-repeat;/*背景图仅显示一次，不重复*/
 }
-.carousel  .items  li:not(.active) {  /*不带.active的li隐藏*/
+.carousel .items li:not(.active){/*不带.active的li隐藏*/
 	display: none;
 }
-.carousel  .indicators {
-	position: absolute;		/*圆形指示器要在图片上方*/
+.carousel .indicators{
+	position: absolute;
 	bottom: 20px;
-	left: 50%;				/*固定定位的元素水平居中*/
+	left: 50%; /*固定定位的元素水平居中*/
 	margin-left: -72px;
 }
-.carousel  .indicators  li {
+.carousel .indicators li{
 	width: 18px;
 	height: 18px;
 	background: #ccc;
-	border-radius: 50%;  /*边框圆角半径为尺寸的一半*/
+	border-radius: 50%;/*边框圆角半径为尺寸的一般*/
 	float: left;
-	margin: 0  9px;
-	cursor: pointer;	 /*光标悬停时变为“小手”*/
-}
-.carousel   .indicators   li.active {
-	background: #ff9300;
+	margin:0 9px;
+	cursor: pointer;/*光标悬停时变为小手*/
 }
 
-/* 5.主体部分 */
+.carousel .indicators li.active{
+	background: #ff9300;
+}
+.carousel .controls{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+
+}
+.carousel  .controls .prev,
+.carousel  .controls .next{
+	position: absolute;
+	width: 54px;
+	height: 94px;
+	font-size: 4em;
+	line-height: 94px;
+	text-align: center;
+	/* opacity: ;会导致当前元素以及其中的文字、图像都透明 */
+	background-color: rgba(0,0,0,0.3);/*背景半透明*/
+	color:#fff;
+	margin-top: -47px;
+}
+.carousel  .controls .prev{
+	margin-left: -496px;
+}
+.carousel  .controls .next{
+	margin-left: 442px;
+}
+.carousel  .controls .prev:hover,
+.carousel  .controls .next:hover{
+	background: rgba(0,0,0,0.6);
+}
+/* 5.主题部分 */
 .mainbar {
 	border-bottom: 1px solid #ddd;
 }
+.mainbar .header{
+	position: relative; /*为绝对定位的子元素提供参照物
+89	*/
+	border-bottom: 3px solid #ddd;
+}
+.mainbar .header h3{
+	font-weight: normal;/*去除文字加粗*/
+	margin-bottom: 0.5em;
+	padding: 0  0.8em;
+}
+.mainbar  .header  a{
+	position: absolute;
+	right:0;
+	bottom:0.3em;
+}
+.mainbar .header span {
+	width: 6.5em;
+	height: 3px;
+	position: absolute;
+	left: 0;
+	bottom: -3px;
+	background: #00B156;
+}
+.mainbar .course,
+.mainbar .teacher{
+	padding:  1.2em 0em;/*每个列中的.course需要自己提供上下间距*/
+}
+.mainbar .course .pic img,
+.mainbar .teacher .pic img{
+	width: 100%;
+}
+.mainbar .course  .title{
+	display: block;/*让课程标题占一整行*/
+	text-align: left;
+}
+.mainbar .teacher  .teach{
+	display: block;/*让讲师姓名占一整行*/
+	text-align: center;
+}
+.mainbar .course .teacher{
+	display: block;/*让讲师姓名占一整行*/
+	font-size: .8em;
+	color: #999;
+	text-align: left;
+}
+
+.mainbar .teacher .mt{
+	display: block;/*让主讲占一整行*/
+	font-size: .8em;
+	color: #999;
+	text-align: center;
+}
+.mainbar .course .price{
+	display: block;/*让价格占一整行*/
+	font-weight: bold;
+	color: #ff5a00;
+	text-align: left;
+	line-height: 1.4em;
+}
+/* 第1/5/9个，col-lg-3中的.course没有padding.left */
+/* .mainbar  .col-lg-3:nth-child(4n+1)  .course{ */
+	/* padding-left: 0; */
+	/* margin-left: -1em; */
+}
+
+
+/* 6.底部条 */
 .bottombar {
 	background: #eee;
 }
+
 /* 选择“底部条”中的“容器”下的第一个.row元素 */
-.bottombar > .container > .row:first-child {
+.bottombar>.container>.row:first-child {
 	border-bottom: 1px solid #ddd;
 }
