@@ -68,19 +68,19 @@ PHONE:  small - sm
 } 
 /* 在PC屏幕下每个列的宽度 */
 @media screen and (min-width: 1024px) {
-	.col-lg-5-1{
+	.col-lg-5-1 {
 		width: 20%;
 	}
-	.col-lg-5-2{
+	.col-lg-5-2 {
 		width: 40%;
 	}
-	.col-lg-5-3{
+	.col-lg-5-3 {
 		width: 60%;
 	}
-	.col-lg-5-4{
+	.col-lg-5-4 {
 		width: 80%;
 	}
-	.col-lg-5-5{
+	.col-lg-5-5 {
 		width: 100%;
 	}
 	.col-lg-1 {

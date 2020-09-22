@@ -1,27 +1,31 @@
-一、浮动布局坑
-  假设：.parent>.child1+.child2+.child3
-  .parent宽度可以容纳.child1和.child3，如果三个子元素都浮动的话，.child3会被挤到下一行
-  情形1：.child1和.child2一样高，则.child3跑到.child1下方
-  情形2：.child1比.child2高，则.child3跑到.child2下方
-  情形3：.child1比.child2一样矮，则.child3跑到.child1下方，但顶部与.child2下方找齐(即.child3不会挨到.child1)
-  
-  提示：情形2和情形3造成的留白无法解决！！
-
-
-二、仿Bootstrap布局系统
-  gutter：槽宽，指两列内容之间的间距，一般由相邻的两列各贡献一半的padding组合而成
-  .col-*-* {
-	  float: left;
-	  padding: 0  1em;     /*此处的1em就是一半的槽宽*/
-  }
-  注意：为了清楚整行最开始的列最左侧的留白，以及整行结束的列最右侧的留白，可以将整行进行margin的调整
-  .row {
-	  margin-left: 1em;
-	  margin-right: 1em;
-  }
-
+一、首页中的难点：
+ 响应式搜索条+导航条
+ 
+ 
+二、经典面试题：如何让内容在容器中竖直居中
+方法1：父容器声明 line-height: 内容高度
+	局限：只适用于内容是一行文字
+方法2：声明内容的margin-top
+	局限：要求容器和内容的高度都是固定且已知
+方法3：父容器display: table-cell; vertical-align: middle
+	局限：容器高度会固定，且兼容性不好
+方式4：内容绝对定位，距离容器顶部50%，再向上微调上边距为负的自身高度的一半
+	局限：内容的高度必需是一个已知且固定值
+	.content {
+		position: absolute;
+		top: 50%;
+		margin-top: -xx%;
+	}
+方式5：CSS3提供的弹性布局
+	局限：IE10及以下的浏览器不支持
+	.box {
+		display: flex;			/*容器变为弹性盒子*/
+		align-items: center;	/*容器中的子元素对齐方式*/
+	}
+	.container {
+		flex: 1;		/*子元素的尺寸占比*/
+	}
 
 今晚任务：
-①照猫画虎：完成“热门课程”
-②完成“名师堂” —— 现有的布局系统不支持“一行五列”，必须编写专用布局列
-
+①仿www.tsinghua.edu.cn首页导航条，实现原本的绿色导航条变为“黑色半透明，遮罩住整个页面的导航条”效果
+②复习：CSS3中的弹性布局 —— 很重要！
