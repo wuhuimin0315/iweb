@@ -1,0 +1,43 @@
+/*校区页面*/
+.fontschool{
+	font-size:1.5em;
+	color: #ccc;
+}
+.bz>img{
+	width: 61px;
+	height: 59px;
+	margin-top: 90px;
+}
+.zt ul{
+	padding: 50px 0px 50px 0;
+	border-bottom: 1px #ccc dotted;
+	position: relative;
+	
+}
+.zt ul li{
+	font-size: 1.5em;
+	margin: 8px 0px;
+	color: #CCCCCC;
+}
+.zt ul li:first-child{
+	color: #666666;
+	font-size: 1.8em;
+}
+@media screen and (min-width: 768px) and (max-width: 1023px){
+	
+	.bz>img{
+		width: 61px;
+		height: 59px;
+		margin-bottom: 0px;
+	}
+} 
+@media screen and (max-width: 767px){
+	.bz>img{
+		width: 61px;
+		height: 59px;
+		margin-top: 20px;
+	}
+	.zt ul li{
+		margin-left: 10px;
+	}
+}

@@ -2,7 +2,6 @@
 /* 1.顶部的灰色条 */
 .topbar {
 	background: #f9f9f9;
-	border-bottom: 1px solid #eee;
 	line-height: 36px;
 }
 .download-app {
@@ -22,6 +21,7 @@
 .logo {
 	margin:  1.5em  0;
 }
+
 .search {
 	/* 保证元素在父容器中竖直居中方法1：调整上间距 */
 	/* margin-top: 25px; */
@@ -35,14 +35,11 @@
 	width: 360px;
 	height: 32px;
 	line-height: 32px;
-	padding: 0  0.6em;
 	font-size: 1.15em;
 	border: 1px solid #ccc;
 	margin-right: 50px;		/*让出右侧的搜索按钮的空间*/
 }
 .search-button {
-	width: 50px;
-	height: 32px;
 	background: #00be56;
 	color: #fff;
 	line-height: 32px;
@@ -67,50 +64,61 @@
 	color: #00be56;
 	padding: 0  0.5em;
 }
-/* PHONE屏幕下的搜索条：LOGO + Search + Hamburger */
-@media screen and (max-width: 767px) {
-	.searchbar {
+@media screen and (max-width:767px) {
+	.searchbar{
 		background: #00be56;
 		border-bottom: 3px solid #b3efc0;
 		height: 52px;
 		font-size: 1.15em;
 	}
-	.logo-container {
-		height: 52px;	/*容器的高大于内容的高，才可能有竖直居中问题*/
-		display: flex;	/*图片的容器显示模式变为：弹性盒子*/
-		align-items: center;  /*弹性盒子中的子元素居中对齐*/
+	.logo_reverse{
+		transform: translateX(10px);
+		width: 100%;/*正常那情况下，空值弹性盒子中的子元素的尺寸应该使用 弹性占比（flex）“
+		即可--此方式只会拉伸图片的宽，而不改变的高，所以此处没有使用*/
 	}
-	.logo_reverse {
-		/* flex: 1; */
-		width: 100%;	/*正常情况下，控制弹性盒子中子元素的尺寸应该使用“弹性占比（flex）”即可——此方式只会拉伸图片的宽，而不改变的高，所以此处没有使用*/
+	.logo-container{
+		height: 52px;/*容器的高大于内容的高才有竖直居中问题*/
+		display: flex;/*图片的容器显示模式变为：弹性盒子*/
+		align-items: center;/*弹性盒子中的子元素居中对齐*/
 	}
 	.search {
-		position: relative;  /*相对定位—为放大镜提供定位参照物*/
-		margin-top: 10px;  /*为输入框竖直居中增加上间距*/
-		top: 0;		/*清除全局样式中定位相关修改*/
-		right: 0;	/*清除全局样式中定位相关修改*/
+		position:relative;/*默认定位 静态定位*/
+		top: 0;
+		right: 0;
+		margin-top: 0px;/*网上微调自身高度的一半*/
 	}
 	.search-input {
 		width: 100%;
-		padding: 0   3em   0   0.6em;
-		margin-right: 0;	/*清除之前对所有屏幕设定的间距*/
+		height: 32px;
+		line-height: 32px;
+		padding: 0  0.6em;
+		font-size: 1.15em;
+		border: 1px solid #ccc;
+		margin-top: 9px;
+		padding: 0  3em 0 0.6em;
+		margin-right: 0px;		/*清除之前对所有屏幕设定的间距*/
 	}
 	.search-button {
+		width: 50px;
+		height: 32px;
 		background: transparent;
 		color: #00be56;
-		top: -2px;
+		line-height: 32px;
+		border: none;
+		font-size: 1.7em;
+		
+		right:0px;
+		top: 6px;
 	}
-	.hamburger {
+	 .hamburger{
+		margin-left:-10px;
 		color: #fff;
-		line-height: 52px;
-		font-size: 26px;
-	}
+		font-size: 3em;
+		margin-top: 3px;
+		transform: translateX(2px);
+	} 
 	
-	.navbar {			/*临时，非永久*/
-		display: none;
-	}
 }
-
 /* 3.导航条 */
 .navbar {
 	background: #00be56;
@@ -145,7 +153,32 @@
 .user-center  a:hover {
 	color: #ffff9b;
 }
-
+@media screen and (max-width:767px){
+	/*PHONE屏幕下，导航条变为“充满整个屏幕的半透明区”*/
+	.navbar{
+		transform: translateX(-100%);
+		position: fixed;
+		left: 0;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		background: rgba(0,0,0,0.7);
+		height: auto;
+		z-index: 9999;
+	}
+	.menu>li{
+		float: none;
+		text-align: center;
+		border: 1px solid #aaa;
+	}
+	.menu-close{
+		position: absolute;
+		top: 10px;
+		right:10px;
+		color: #fff;
+		font-size: 3em;
+	}
+}
 /* 4.轮播广告 */
 .carouselbar {
 	border-bottom: 4px solid #ddd;
@@ -205,115 +238,39 @@
 .carousel   .controls  .next {
 	margin-left: 442px;
 }
+@media  screen and (max-width:767px) {
+	.carousel .items a{
+		height: 200px;
+		background-size: cover;
+	}
+	.carousel .controls{
+		position: static;/*取消。prev和next父元素的绝对定位，让他两个的定位参照物设定为.carousel即可*/
+	}
+	.carousel .controls .prev{
+		margin-left: 0px;
+		left: 0;
+		top: 50%;
+	}
+	.carousel .controls .next{
+		margin-right:0px;
+		top: 50%;
+		right: 0;
+	}
+}
+@media screen and (min-width:768px) and (max-width:1023px) {
+	.carousel .controls .prev{
+		margin-left: -375px;
+	}
+	.carousel .controls .next{
+		margin-left: 321px;
+	}
+}
 .carousel   .controls  .prev:hover,
 .carousel   .controls  .next:hover {
 	background: rgba(0,0,0, 0.6);
 }
 /* 5.主体部分 */
-.mainbar {
-	border-bottom: 1px solid #ddd;
-}
-.mainbar  .header  {
-	position: relative;  /*为绝对定位的子元素提供参照物*/
-	border-bottom: 3px solid #ddd;
-}
-.mainbar  .header   h3 {
-	font-weight: normal;	/*标题字取消加粗*/
-	margin-bottom:  .5em;	/*0.5简写为.5*/
-	padding: 0   0.8em;		/*此处的0.8可简写为.8*/
-}
-.mainbar  .header  a {
-	position: absolute;
-	right: 0;
-	bottom: .3em
-}
-.mainbar  .header  span {
-	width: 7em;
-	height: 3px;
-	position: absolute;
-	left: 0;
-	bottom: -3px;	/*此处如果使用0，仍然在父容器边框内*/
-	background: #00be56;
-}
-.mainbar   .course  {
-	padding: 1.2em   0;   /*每个列中的.course需要自己提供上下间距*/
-	/* border: 1px solid #000; */
-}
-.mainbar   .course   .pic   img {
-	width: 100%;
-}
-.mainbar   .course   .title {
-	display: block;		/*让课程标题占一整行*/
-	text-align: left;
-	line-height: 1.8em;
-}
-.mainbar   .course   .teacher {
-	display: block;		/*让讲师姓名占一整行*/
-	font-size:  .8em;
-	color: #999;
-	text-align: left;
-	line-height: 1.8em;
-}
-.mainbar   .course   .price {
-	display: block;   /*让价格占一整行*/
-	font-weight: bold;
-	color: #ff5a00;
-	text-align: left;
-}
-.mainbar   .teacher-item  {
-	padding: 2em  0;
-}
-.mainbar   .teacher-item   .pic   img {
-	width: 100%;
-}
-.mainbar   .teacher-item   .tname {
-	font-size: 1.2em;
-	color: #555;
-	line-height: 2.2em;
-	display: block;			/*显示为块级元素，独占一行*/
-	text-align: center;
-}
-.mainbar   .teacher-item   .maincourse {
-	font-size:  .8em;
-	color: #999;
-	display: block;	/*显示为块级元素，独占一行*/
-	text-align: center;
-}
-/* 在PAD屏幕下，讲师列表一行只能显示3.5个讲师信息，溢出内容水平滚动 */
-@media  screen  and  (min-width:768px)  and  (max-width: 1023px) {
-	.teacher-list {
-		white-space: nowrap;  /*一行结尾处的空白处不换行*/
-		overflow-x: auto; /*水平方向内容溢出时显示滚动条*/
-		margin-left: 0;   /*取消.row左边带的margin*/
-		margin-right: 0;  /*取消.row右边带的margin*/
-	}
-	.col-lg-5-1 {
-		/*取消列浮动——浮动元素只要空间不够必然转到下一行*/
-		float: none; 
-		/*根据PAD屏下的.container宽度(750px)，设置内容宽*/
-		width: 214px;
-		/*将列设置为“行内块”——就可以在一行中出现多个列*/
-		display: inline-block;
-	}
-}
 
-/* 在PHONE屏幕下，讲师列表一行只能大约显示2.5个讲师信息，溢出内容水平滚动 */
-@media  screen  and  (max-width: 767px) {
-	.teacher-list {
-		white-space: nowrap;  /*一行结尾处的空白处不换行*/
-		overflow-x: auto; /*水平方向内容溢出时显示滚动条*/
-		margin-left: 0;   /*取消.row左边带的margin*/
-		margin-right: 0;  /*取消.row右边带的margin*/
-	}
-	.col-lg-5-1 {
-		/*取消列浮动——浮动元素只要空间不够必然转到下一行*/
-		float: none; 
-		/*根据PHONE屏下的.container宽度(100%，基本都在320px~375px之间)，设置内容宽*/
-		width: 140px;
-		/*将列设置为“行内块”——就可以在一行中出现多个列*/
-		display: inline-block;
-	}
-}
 
 
 /* 6.底部条 */
@@ -351,4 +308,43 @@
 	font-size:  .8em;
 	line-height: 2em;
 	margin: 1em  0  1.5em;
+}
+
+/*底部的页签条*/
+.tabber{
+	position:fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	height: 64px;
+	background: #f8f6fa;
+	border-top: 1px solid #b2cfcc;
+}
+@media screen and (max-width:767px) {
+	body{
+		margin-bottom: 64px;
+	}
+	.tabber{
+		position:fixed;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		height: 64px;
+		background: #f8f6fa;
+		border-top: 1px solid #b2cfcc;
+	}
+	.tab{
+		color: #ccc;
+		text-align: center;
+		padding: 8px 0 0 ;
+	}
+	.tab.active{
+	    color: #00be56;
+	}
+	.tab .fa{
+		font-size: 2.6em;
+	}
+	.tab>span{
+		display: block;
+	}
 }
