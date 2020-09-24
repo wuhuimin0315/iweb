@@ -1,43 +1,41 @@
-/*校区页面*/
-.fontschool{
-	font-size:1.5em;
-	color: #ccc;
+a{
+	color: #9999b3;
 }
-.bz>img{
-	width: 61px;
-	height: 59px;
-	margin-top: 90px;
+a:hover,
+a:active{
+	color: #9999b3;
 }
-.zt ul{
-	padding: 50px 0px 50px 0;
-	border-bottom: 1px #ccc dotted;
-	position: relative;
-	
+h3 {
+	font-weight: lighter;
 }
-.zt ul li{
-	font-size: 1.5em;
-	margin: 8px 0px;
-	color: #CCCCCC;
+
+.schoolbar-item {
+	padding-top: 10px;
+	font-size: 1.1em;
 }
-.zt ul li:first-child{
-	color: #666666;
-	font-size: 1.8em;
+.day1 {
+	height: 167px;
+	border-bottom: 1px solid #eee;
 }
-@media screen and (min-width: 768px) and (max-width: 1023px){
-	
-	.bz>img{
-		width: 61px;
-		height: 59px;
-		margin-bottom: 0px;
-	}
-} 
-@media screen and (max-width: 767px){
-	.bz>img{
-		width: 61px;
-		height: 59px;
-		margin-top: 20px;
-	}
-	.zt ul li{
-		margin-left: 10px;
-	}
+.schoolbar .address {
+	margin-top: 40px;
 }
+.schoolbar .address .fa-map-marker {
+	color: #00be56;
+	font-size: 4em;
+	float: left;
+	margin-left: 3em;
+}
+.schoolbar .address .address-item{
+	margin-left: 13em;
+	font-size: 1.4em;
+	line-height: 1.6em;
+}
+.schoolbar .address .address-detail {
+	margin-left: 23em;
+	text-align: left;
+	color: #999;
+	font-size: .8em;
+	line-height: 2em;
+}
+
